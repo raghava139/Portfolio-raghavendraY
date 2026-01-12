@@ -6,7 +6,7 @@ const Experience = () => {
     return (
         <div className="search-result-item">
             <div className="result-url">
-                https://portfolio.google.com › experience
+                https://raghavendra-y-portfolio.netlify.app › experience
             </div>
             <h2 className="result-title">Work Experience</h2>
             <div className="result-snippet">

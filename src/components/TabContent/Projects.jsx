@@ -6,7 +6,7 @@ const Projects = () => {
     return (
         <div className="search-result-item">
             <div className="result-url">
-                https://portfolio.google.com › projects
+                https://raghavendra-y-portfolio.netlify.app › projects
             </div>
             <h2 className="result-title">Featured Projects</h2>
             <div className="result-snippet">

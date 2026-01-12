@@ -34,7 +34,7 @@ const Contact = () => {
     return (
         <div className="search-result-item">
             <div className="result-url">
-                https://portfolio.google.com › contact
+                https://raghavendra-y-portfolio.netlify.app › contact
             </div>
             <h2 className="result-title">Contact Me</h2>
             <div className="result-snippet">

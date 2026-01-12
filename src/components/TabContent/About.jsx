@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div className="search-result-item">
             <div className="result-url">
-                https://portfolio.google.com › about › {profileData.name.toLowerCase().replace(' ', '-')}
+                https://raghavendra-y-portfolio.netlify.app › about › {profileData.name.toLowerCase().replace(' ', '-')}
             </div>
             <h2 className="result-title">About {profileData.name} - {profileData.role}</h2>
             <div className="result-snippet">

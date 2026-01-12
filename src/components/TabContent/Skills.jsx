@@ -8,7 +8,7 @@ const Skills = () => {
     return (
         <div className="search-result-item">
             <div className="result-url">
-                https://portfolio.google.com › skills
+                https://raghavendra-y-portfolio.netlify.app › skills
             </div>
             <h2 className="result-title">Technical Expertise</h2>
             <div className="result-snippet">
