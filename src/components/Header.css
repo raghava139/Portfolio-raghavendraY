@@ -1,0 +1,437 @@
+.google-header {
+    border-bottom: 1px solid var(--google-border);
+    padding-top: 20px;
+    background: var(--header-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 20px 20px;
+    gap: 30px;
+}
+
+.google-logo {
+    font-family: 'Product Sans', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+}
+
+.g-blue {
+    color: #4285f4;
+}
+
+.g-red {
+    color: #ea4335;
+}
+
+.g-yellow {
+    color: #fbbc05;
+}
+
+.g-green {
+    color: #34a853;
+}
+
+.search-bar-container {
+    flex: 1;
+    max-width: 690px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: var(--search-bar-bg);
+    border: 1px solid transparent;
+    box-shadow: 0 2px 5px 1px var(--search-shadow);
+    border-radius: 24px;
+    height: 44px;
+    padding: 0 14px;
+    transition: all 0.2s;
+}
+
+.search-bar:hover,
+.search-bar:focus-within {
+    box-shadow: 0 2px 8px 1px var(--search-shadow-hover);
+    background-color: var(--search-bar-bg);
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    color: var(--google-text);
+    background: transparent;
+    margin: 0 10px;
+}
+
+.search-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--google-blue);
+    font-size: 18px;
+}
+
+.divider {
+    height: 24px;
+    width: 1px;
+    background-color: var(--google-border);
+    margin: 0 4px;
+}
+
+.icon-clear {
+    color: #70757a;
+    cursor: pointer;
+}
+
+.icon-mic,
+.icon-lens {
+    cursor: pointer;
+    color: var(--google-blue);
+}
+
+.icon-search-blue {
+    color: var(--google-blue);
+    cursor: pointer;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--google-text-secondary);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    background-color: rgba(60, 64, 67, 0.08);
+    /* slight grey hover */
+}
+
+/* User Avatar 'R' */
+.user-avatar {
+    background-color: #0b57d0;
+    /* Google dark blue */
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.user-avatar:hover {
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+
+.header-bottom {
+    padding-left: 170px;
+    /* Aligns with search results usually */
+}
+
+.tabs-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 12px;
+    color: var(--google-text-light);
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    font-weight: 500;
+}
+
+.tab-btn.active {
+    color: var(--google-blue);
+    font-weight: 500;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    right: 12px;
+    height: 3px;
+    background-color: var(--google-blue);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+@media (max-width: 800px) {
+    .header-top {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .header-bottom {
+        padding-left: 20px;
+        overflow-x: auto;
+    }
+
+    .google-logo {
+        display: block;
+        /* Keep logo visible or hide based on pref, usually mobile hides or shrinks */
+        font-size: 20px;
+    }
+
+    .search-bar-container {
+        max-width: 100%;
+        order: 2;
+        /* Drop search bar below logo on very small screens? Or keep inline */
+        width: 100%;
+    }
+
+    .logo-area {
+        order: 1;
+    }
+
+    .header-actions {
+        order: 1;
+        margin-left: auto;
+    }
+}
+
+/* Profile Popover Styles */
+.user-avatar-container {
+    position: relative;
+}
+
+.google-profile-popover {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 350px;
+    background: var(--header-bg);
+    /* Ensure this variable exists or fallback */
+    background-color: white;
+    /* Fallback */
+    border-radius: 16px;
+    box-shadow: 0 4px 8px 3px rgba(60, 64, 67, 0.15), 0 1px 3px rgba(60, 64, 67, 0.3);
+    z-index: 1000;
+    overflow: hidden;
+    color: var(--google-text);
+    border: 1px solid #dadce0;
+}
+
+/* Dark mode support for popover if variables are used */
+[data-theme='dark'] .google-profile-popover {
+    background-color: #202124;
+    border-color: #5f6368;
+}
+
+.popover-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #dadce0;
+}
+
+[data-theme='dark'] .popover-header {
+    border-bottom-color: #5f6368;
+}
+
+.popover-email {
+    font-size: 14px;
+    color: #5f6368;
+    margin-bottom: 15px;
+}
+
+[data-theme='dark'] .popover-email {
+    color: #9aa0a6;
+}
+
+.popover-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #0b57d0;
+    color: white;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.popover-name {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #202124;
+}
+
+[data-theme='dark'] .popover-name {
+    color: #e8eaed;
+}
+
+.manage-account-btn {
+    background: transparent;
+    border: 1px solid #dadce0;
+    border-radius: 100px;
+    color: #3c4043;
+    font-family: 'Product Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 24px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+[data-theme='dark'] .manage-account-btn {
+    border-color: #5f6368;
+    color: #e8eaed;
+}
+
+.manage-account-btn:hover {
+    background-color: #f7f8f8;
+}
+
+[data-theme='dark'] .manage-account-btn:hover {
+    background-color: rgba(232, 234, 237, 0.08);
+    /* Dark mode hover */
+}
+
+
+
+.popover-actions {
+    padding: 10px 0;
+    border-bottom: 1px solid #dadce0;
+}
+
+[data-theme='dark'] .popover-actions {
+    border-bottom-color: #5f6368;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 34px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #3c4043;
+}
+
+[data-theme='dark'] .action-item {
+    color: #e8eaed;
+}
+
+.action-item:hover {
+    background-color: #f7f8f8;
+}
+
+[data-theme='dark'] .action-item:hover {
+    background-color: rgba(232, 234, 237, 0.08);
+}
+
+.action-icon {
+    margin-right: 15px;
+    color: #5f6368;
+    font-size: 18px;
+}
+
+[data-theme='dark'] .action-icon {
+    color: #9aa0a6;
+}
+
+.popover-footer {
+    padding: 14px;
+    text-align: center;
+    font-size: 12px;
+    color: #5f6368;
+    background-color: #f7f8f8;
+}
+
+[data-theme='dark'] .popover-footer {
+    background-color: #303134;
+    color: #9aa0a6;
+}
+
+/* Custom Tooltip implementation (DOM-based) */
+.custom-tooltip {
+    position: absolute;
+    top: 100%;
+    /* Below the avatar */
+    right: 0;
+    margin-top: 10px;
+    background-color: #28292c;
+    /* Exact dark grey from image */
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    width: max-content;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    opacity: 0;
+    visibility: hidden;
+    /* Hide by default */
+    transition: opacity 0.2s, visibility 0.2s;
+    z-index: 1001;
+    pointer-events: none;
+    /* Don't interfere with clicks */
+    text-align: left;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+.user-avatar-container:hover .custom-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+/* If profile popover is open, hide the tooltip */
+.user-avatar-container:has(.google-profile-popover) .custom-tooltip {
+    display: none;
+}
+
+.tooltip-header {
+    font-size: 13px;
+    color: #bdc1c6;
+    /* Lighter grey for 'Google Account' */
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.tooltip-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    /* Match image uppercase */
+}
+
+.tooltip-email {
+    font-size: 13px;
+    color: #9aa0a6;
+    /* Grey for email */
+}

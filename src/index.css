@@ -1,0 +1,98 @@
+:root {
+  /* Light Mode (Default) */
+  --google-blue: #1a0dab;
+  --google-red: #ea4335;
+  --google-yellow: #fbbc04;
+  --google-green: #34a853;
+
+  --google-bg: #ffffff;
+  --google-text: #202124;
+  --google-text-secondary: #4d5156;
+  --google-text-light: #5f6368;
+  --google-border: #dfe1e5;
+  --google-hover: #f1f3f4;
+  --google-card-bg: #ffffff;
+  --google-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  --header-bg: #ffffff;
+  --search-bar-bg: #ffffff;
+  --search-shadow: rgba(64, 60, 67, .16);
+  --search-shadow-hover: rgba(64, 60, 67, .24);
+
+  --font-primary: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+[data-theme='dark'] {
+  --google-blue: #8ab4f8;
+  --google-red: #ff8b7e;
+  /* Softer red for dark mode if needed, or keep standard */
+  --google-yellow: #fbad3e;
+  --google-green: #81c995;
+
+  --google-bg: #202124;
+  --google-text: #e8eaed;
+  --google-text-secondary: #bdc1c6;
+  --google-text-light: #9aa0a6;
+  --google-border: #3c4043;
+  --google-hover: #303134;
+  --google-card-bg: #303134;
+  --google-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  --header-bg: #202124;
+  --search-bar-bg: #303134;
+  --search-shadow: rgba(0, 0, 0, .5);
+  --search-shadow-hover: rgba(0, 0, 0, .7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  background-color: var(--google-bg);
+  color: var(--google-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: var(--google-blue);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout Container */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: minmax(0, 652px) 360px;
+  gap: 60px;
+  padding: 0 20px 40px 180px;
+  margin-top: 20px;
+}
+
+@media (max-width: 1150px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 30px;
+  }
+}
+
+/* Common Dark Mode Utils */
+.icon-search-blue {
+  color: var(--google-blue);
+}
+
+.search-bar input {
+  color: var(--google-text);
+}

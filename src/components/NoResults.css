@@ -1,0 +1,32 @@
+.no-results-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #3c4043;
+    max-width: 600px;
+}
+
+.no-results-message {
+    font-size: 16px;
+    margin-bottom: 2em;
+}
+
+.query-text {
+    font-weight: bold;
+}
+
+.suggestions p {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.suggestions ul {
+    margin-top: 0;
+    padding-left: 18px;
+    line-height: unknown;
+}
+
+.suggestions li {
+    margin-bottom: 6px;
+    color: #3c4043;
+    font-size: 14px;
+}
