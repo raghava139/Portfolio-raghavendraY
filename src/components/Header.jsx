@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaSearch, FaTimes, FaMicrophone, FaCamera, FaTh, FaMoon, FaSun, FaIndustry, FaChartLine } from 'react-icons/fa';
+import {
+    FaSearch, FaTimes, FaMicrophone, FaCamera, FaTh, FaMoon, FaSun, FaIndustry, FaChartLine,
+    FaReact, FaHtml5, FaCss3, FaGitAlt, FaCode
+} from 'react-icons/fa';
+import {
+    SiRedux, SiTypescript, SiJavascript, SiTailwindcss, SiBootstrap,
+    SiAntdesign, SiMui, SiDotnet, SiNestjs, SiPostgresql, SiWebpack
+} from 'react-icons/si';
 import { profileData } from '../data/profile';
 import './Header.css';
 
@@ -9,13 +16,47 @@ const Header = ({ activeTab, setActiveTab, searchQuery, setSearchQuery }) => {
     // const [searchValue, setSearchValue] = useState(profileData.name); // Using props now
     const [theme, setTheme] = useState('light');
     const [showProfile, setShowProfile] = useState(false);
-    const profileRef = useRef(null);
+    const [showApps, setShowApps] = useState(false);
 
-    // Close profile popup when clicking outside
+    const profileRef = useRef(null);
+    const appsRef = useRef(null);
+
+    // Skill Icon Mapping
+    const skillIcons = {
+        "React.js": <FaReact style={{ color: '#61DAFB' }} />,
+        "Redux Toolkit": <SiRedux style={{ color: '#764ABC' }} />,
+        "TypeScript": <SiTypescript style={{ color: '#3178C6' }} />,
+        "JavaScript": <SiJavascript style={{ color: '#F7DF1E' }} />,
+        "HTML5": <FaHtml5 style={{ color: '#E34F26' }} />,
+        "CSS3": <FaCss3 style={{ color: '#1572B6' }} />,
+        "Tailwind CSS": <SiTailwindcss style={{ color: '#06B6D4' }} />,
+        "Bootstrap": <SiBootstrap style={{ color: '#7952B3' }} />,
+        "Ant Design": <SiAntdesign style={{ color: '#0170FE' }} />,
+        "Material UI": <SiMui style={{ color: '#007FFF' }} />,
+        ".NET Integration": <SiDotnet style={{ color: '#512BD4' }} />,
+        "NestJS": <SiNestjs style={{ color: '#E0234E' }} />,
+        "REST APIs": <FaCode style={{ color: '#5f6368' }} />,
+        "PostgreSQL": <SiPostgresql style={{ color: '#4169E1' }} />,
+        "Git": <FaGitAlt style={{ color: '#F05032' }} />,
+        "Webpack": <SiWebpack style={{ color: '#8DD6F9' }} />
+    };
+
+    // Flatten all skills for the grid
+    const allSkills = [
+        ...profileData.skills.frontend,
+        ...profileData.skills.ui,
+        ...profileData.skills.backend,
+        ...profileData.skills.tools
+    ];
+
+    // Close popups when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (profileRef.current && !profileRef.current.contains(event.target)) {
                 setShowProfile(false);
+            }
+            if (appsRef.current && !appsRef.current.contains(event.target)) {
+                setShowApps(false);
             }
         };
 
@@ -36,16 +77,18 @@ const Header = ({ activeTab, setActiveTab, searchQuery, setSearchQuery }) => {
     return (
         <header className="google-header">
             <div className="header-top">
-                <div className="logo-area">
-                    <span className="google-logo">
-                        <span className="g-blue">G</span>
-                        <span className="g-red">o</span>
-                        <span className="g-yellow">o</span>
-                        <span className="g-blue">g</span>
-                        <span className="g-green">l</span>
-                        <span className="g-red">e</span>
-                    </span>
-                </div>
+                <a href="https://raghavendra-y-portfolio.netlify.app/" target='_blank'>
+                    <div className="logo-area">
+                        <span className="google-logo">
+                            <span className="g-blue">G</span>
+                            <span className="g-red">o</span>
+                            <span className="g-yellow">o</span>
+                            <span className="g-blue">g</span>
+                            <span className="g-green">l</span>
+                            <span className="g-red">e</span>
+                        </span>
+                    </div>
+                </a>
                 <div className="search-bar-container">
                     <div className="search-bar">
                         <input
@@ -67,9 +110,38 @@ const Header = ({ activeTab, setActiveTab, searchQuery, setSearchQuery }) => {
                     <button className="icon-btn" onClick={toggleTheme} title="Toggle Dark Mode">
                         {theme === 'light' ? <FaMoon /> : <FaSun />}
                     </button>
-                    <button className="icon-btn" title="Google Apps">
-                        <FaTh />
-                    </button>
+
+                    <div className="apps-container" ref={appsRef}>
+                        <button
+                            className={`icon-btn ${showApps ? 'active' : ''}`}
+                            title="Skills (Google Apps)"
+                            onClick={() => setShowApps(!showApps)}
+                        >
+                            <FaTh />
+                        </button>
+
+                        {showApps && (
+                            <div className="apps-popover">
+                                <div className="apps-header">My Skills</div>
+                                <div className="apps-scroll-content">
+                                    <div className="apps-grid">
+                                        {allSkills.map((skill, index) => (
+                                            <div key={index} className="app-item" title={skill}>
+                                                <div className="app-icon">
+                                                    {skillIcons[skill] || <FaCode />}
+                                                </div>
+                                                <div className="app-name">{skill}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="apps-footer">
+                                        <button className="more-btn">More from Portfolio</button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
                     <div className="user-avatar-container" ref={profileRef}>
                         <div
                             className="user-avatar"
