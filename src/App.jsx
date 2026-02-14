@@ -6,6 +6,7 @@ import Skills from './components/TabContent/Skills';
 import Experience from './components/TabContent/Experience';
 import Projects from './components/TabContent/Projects';
 import Contact from './components/TabContent/Contact';
+import AiTools from './components/TabContent/AiTools';
 import NoResults from './components/NoResults';
 import { profileData } from './data/profile';
 
@@ -32,6 +33,7 @@ function App() {
       case 'Skills': return <Skills />;
       case 'Experience': return <Experience />;
       case 'Projects': return <Projects />;
+      case 'AI Tools': return <AiTools />;
       case 'Contact': return <Contact />;
       default: return <About />;
     }

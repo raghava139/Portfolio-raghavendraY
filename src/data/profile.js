@@ -19,12 +19,11 @@ export const profileData = {
         email: "mailto:raghavendra324174@gmail.com"
     },
     skills: {
-        frontend: ["HTML", "CSS3", "JavaScript", "TypeScript", "React.js", "jQuery"],
-        stateManagement: ["Redux", "Redux Toolkit", "Jotai"],
-        buildTools: ["Webpack", "Parcel", "Vite"],
-        uiFrameworks: ["Bootstrap", "Ant Design", "Tailwind CSS"],
-        backend: ["PostgreSQL"],
-        tools: ["Git", "GitHub", "DSA", "System Design"]
+        frontend: ["HTML", "CSS3", "JavaScript",
+            "TypeScript", "React.js", "jQuery", "Redux Toolkit",
+            'Bootstrap', 'Ant Design', 'Tailwind CSS', 'ShadCn',
+            'NestJS', 'Node.js', 'Express.js', 'PostgreSQL', 'MySQL', 'MongoDB',
+            'Git', 'GitHub', 'DSA', 'System Design']
     },
     projects: [
         {
@@ -63,5 +62,18 @@ export const profileData = {
             tech: ["React.js", "Redux Toolkit", "Tailwind CSS", "Jotai", "ShadCn", "NestJS"],
             link: "#"
         }
+    ],
+    aiTools: [
+        "Cursor",
+        "GitHub Copilot",
+        "ChatGPT",
+        "Claude",
+        "Antigravity",
+        "Windsurf",
+        "Blackbox",
+        "Gemini",
+        "Bolt",
+        "Lovable",
+        "Replit"
     ]
 };

@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
     FaSearch, FaTimes, FaMicrophone, FaCamera, FaTh, FaMoon, FaSun, FaIndustry, FaChartLine,
-    FaReact, FaHtml5, FaCss3, FaGitAlt, FaCode, FaGithub, FaDatabase, FaAtom
+    FaReact, FaHtml5, FaCss3, FaGitAlt, FaCode, FaGithub, FaDatabase, FaAtom, FaNode
 } from 'react-icons/fa';
 import {
     SiRedux, SiTypescript, SiJavascript, SiTailwindcss, SiBootstrap,
     SiAntdesign, SiMui, SiDotnet, SiNestjs, SiPostgresql, SiWebpack,
-    SiJquery, SiVite, SiGithub
+    SiJquery, SiVite, SiGithub, SiMongodb, SiMysql, SiExpress, SiNodedotjs, SiShadcnui
 } from 'react-icons/si';
 import { TbBrandVite } from 'react-icons/tb';
 import { profileData } from '../data/profile';
 import './Header.css';
 
-const tabs = ['About', 'Skills', 'Experience', 'Projects', 'Contact'];
+const tabs = ['About', 'Skills', 'Experience', 'Projects', 'AI Tools', 'Contact'];
 
 const Header = ({ activeTab, setActiveTab, searchQuery, setSearchQuery }) => {
     // const [searchValue, setSearchValue] = useState(profileData.name); // Using props now
@@ -40,7 +40,13 @@ const Header = ({ activeTab, setActiveTab, searchQuery, setSearchQuery }) => {
         "Bootstrap": <SiBootstrap style={{ color: '#7952B3' }} />,
         "Ant Design": <SiAntdesign style={{ color: '#0170FE' }} />,
         "Tailwind CSS": <SiTailwindcss style={{ color: '#06B6D4' }} />,
+        "ShadCn": <SiShadcnui style={{ color: '#000000' }} />,
+        "NestJS": <SiNestjs style={{ color: '#E0234E' }} />,
+        "Node.js": <SiNodedotjs style={{ color: '#339933' }} />,
+        "Express.js": <SiExpress style={{ color: '#000000' }} />,
         "PostgreSQL": <SiPostgresql style={{ color: '#4169E1' }} />,
+        "MySQL": <SiMysql style={{ color: '#4479A1' }} />,
+        "MongoDB": <SiMongodb style={{ color: '#47A248' }} />,
         "Git": <FaGitAlt style={{ color: '#F05032' }} />,
         "GitHub": <SiGithub style={{ color: '#181717' }} />,
         "DSA": <FaCode style={{ color: '#4CAF50' }} />,
@@ -48,14 +54,7 @@ const Header = ({ activeTab, setActiveTab, searchQuery, setSearchQuery }) => {
     };
 
     // Flatten all skills for the grid
-    const allSkills = [
-        ...profileData.skills.frontend,
-        ...profileData.skills.stateManagement,
-        ...profileData.skills.buildTools,
-        ...profileData.skills.uiFrameworks,
-        ...profileData.skills.backend,
-        ...profileData.skills.tools
-    ];
+    const allSkills = profileData.skills.frontend || [];
 
     // Close popups when clicking outside
     useEffect(() => {
