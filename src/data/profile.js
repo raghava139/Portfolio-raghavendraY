@@ -19,10 +19,12 @@ export const profileData = {
         email: "mailto:raghavendra324174@gmail.com"
     },
     skills: {
-        frontend: ["React.js", "Redux Toolkit", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap"],
-        ui: ["Ant Design", "Material UI", "Responsive Design", "Accessibility"],
-        backend: [".NET Integration", "NestJS", "REST APIs", "PostgreSQL"],
-        tools: ["Git", "Webpack", "CI/CD", "Chrome DevTools", "Performance Profiling"]
+        frontend: ["HTML", "CSS3", "JavaScript", "TypeScript", "React.js", "jQuery"],
+        stateManagement: ["Redux", "Redux Toolkit", "Jotai"],
+        buildTools: ["Webpack", "Parcel", "Vite"],
+        uiFrameworks: ["Bootstrap", "Ant Design", "Tailwind CSS"],
+        backend: ["PostgreSQL"],
+        tools: ["Git", "GitHub", "DSA", "System Design"]
     },
     projects: [
         {
@@ -52,13 +54,13 @@ export const profileData = {
         {
             title: "CIM Finance – Cashier Portal",
             description: "Cashier transaction workflows with real-time validations. modular UI components for payment collection and receipts.",
-            tech: ["React.js", "Redux", "Tailwind CSS"],
+            tech: ["React.js", "Redux", "Tailwind CSS",],
             link: "#"
         },
         {
             title: "Carmudi – Finance Management Portal",
             description: "Scalable UI architecture for customer onboarding and loan processing. Real-time dashboards and financial API integration.",
-            tech: ["React.js", "Redux Toolkit", "Tailwind CSS"],
+            tech: ["React.js", "Redux Toolkit", "Tailwind CSS", "Jotai", "ShadCn", "NestJS"],
             link: "#"
         }
     ]

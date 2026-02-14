@@ -22,21 +22,35 @@ const Skills = () => {
                     </div>
 
                     <div className="skill-category">
-                        <h3 className="skill-cat-title">UI & Design</h3>
+                        <h3 className="skill-cat-title">State Management</h3>
                         <div className="skill-items">
-                            {skills.ui.map(s => <span key={s} className="skill-badge">{s}</span>)}
+                            {skills.stateManagement.map(s => <span key={s} className="skill-badge">{s}</span>)}
                         </div>
                     </div>
 
                     <div className="skill-category">
-                        <h3 className="skill-cat-title">Backend & APIs</h3>
+                        <h3 className="skill-cat-title">Build Tools</h3>
+                        <div className="skill-items">
+                            {skills.buildTools.map(s => <span key={s} className="skill-badge">{s}</span>)}
+                        </div>
+                    </div>
+
+                    <div className="skill-category">
+                        <h3 className="skill-cat-title">UI Frameworks</h3>
+                        <div className="skill-items">
+                            {skills.uiFrameworks.map(s => <span key={s} className="skill-badge">{s}</span>)}
+                        </div>
+                    </div>
+
+                    <div className="skill-category">
+                        <h3 className="skill-cat-title">Backend & Database</h3>
                         <div className="skill-items">
                             {skills.backend.map(s => <span key={s} className="skill-badge">{s}</span>)}
                         </div>
                     </div>
 
                     <div className="skill-category">
-                        <h3 className="skill-cat-title">Tools & Workflow</h3>
+                        <h3 className="skill-cat-title">Tools & Computer Science</h3>
                         <div className="skill-items">
                             {skills.tools.map(s => <span key={s} className="skill-badge">{s}</span>)}
                         </div>

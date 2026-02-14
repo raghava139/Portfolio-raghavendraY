@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
     FaSearch, FaTimes, FaMicrophone, FaCamera, FaTh, FaMoon, FaSun, FaIndustry, FaChartLine,
-    FaReact, FaHtml5, FaCss3, FaGitAlt, FaCode
+    FaReact, FaHtml5, FaCss3, FaGitAlt, FaCode, FaGithub, FaDatabase, FaAtom
 } from 'react-icons/fa';
 import {
     SiRedux, SiTypescript, SiJavascript, SiTailwindcss, SiBootstrap,
-    SiAntdesign, SiMui, SiDotnet, SiNestjs, SiPostgresql, SiWebpack
+    SiAntdesign, SiMui, SiDotnet, SiNestjs, SiPostgresql, SiWebpack,
+    SiJquery, SiVite, SiGithub
 } from 'react-icons/si';
+import { TbBrandVite } from 'react-icons/tb';
 import { profileData } from '../data/profile';
 import './Header.css';
 
@@ -23,28 +25,34 @@ const Header = ({ activeTab, setActiveTab, searchQuery, setSearchQuery }) => {
 
     // Skill Icon Mapping
     const skillIcons = {
-        "React.js": <FaReact style={{ color: '#61DAFB' }} />,
-        "Redux Toolkit": <SiRedux style={{ color: '#764ABC' }} />,
-        "TypeScript": <SiTypescript style={{ color: '#3178C6' }} />,
-        "JavaScript": <SiJavascript style={{ color: '#F7DF1E' }} />,
-        "HTML5": <FaHtml5 style={{ color: '#E34F26' }} />,
+        "HTML": <FaHtml5 style={{ color: '#E34F26' }} />,
         "CSS3": <FaCss3 style={{ color: '#1572B6' }} />,
-        "Tailwind CSS": <SiTailwindcss style={{ color: '#06B6D4' }} />,
+        "JavaScript": <SiJavascript style={{ color: '#F7DF1E' }} />,
+        "TypeScript": <SiTypescript style={{ color: '#3178C6' }} />,
+        "React.js": <FaReact style={{ color: '#61DAFB' }} />,
+        "jQuery": <SiJquery style={{ color: '#0769AD' }} />,
+        "Redux": <SiRedux style={{ color: '#764ABC' }} />,
+        "Redux Toolkit": <SiRedux style={{ color: '#764ABC' }} />,
+        "Jotai": <FaAtom style={{ color: '#6B46C1' }} />,
+        "Webpack": <SiWebpack style={{ color: '#8DD6F9' }} />,
+        "Parcel": <FaCode style={{ color: '#E7A13D' }} />,
+        "Vite": <TbBrandVite style={{ color: '#646CFF' }} />,
         "Bootstrap": <SiBootstrap style={{ color: '#7952B3' }} />,
         "Ant Design": <SiAntdesign style={{ color: '#0170FE' }} />,
-        "Material UI": <SiMui style={{ color: '#007FFF' }} />,
-        ".NET Integration": <SiDotnet style={{ color: '#512BD4' }} />,
-        "NestJS": <SiNestjs style={{ color: '#E0234E' }} />,
-        "REST APIs": <FaCode style={{ color: '#5f6368' }} />,
+        "Tailwind CSS": <SiTailwindcss style={{ color: '#06B6D4' }} />,
         "PostgreSQL": <SiPostgresql style={{ color: '#4169E1' }} />,
         "Git": <FaGitAlt style={{ color: '#F05032' }} />,
-        "Webpack": <SiWebpack style={{ color: '#8DD6F9' }} />
+        "GitHub": <SiGithub style={{ color: '#181717' }} />,
+        "DSA": <FaCode style={{ color: '#4CAF50' }} />,
+        "System Design": <FaDatabase style={{ color: '#FF6B6B' }} />
     };
 
     // Flatten all skills for the grid
     const allSkills = [
         ...profileData.skills.frontend,
-        ...profileData.skills.ui,
+        ...profileData.skills.stateManagement,
+        ...profileData.skills.buildTools,
+        ...profileData.skills.uiFrameworks,
         ...profileData.skills.backend,
         ...profileData.skills.tools
     ];
@@ -125,7 +133,7 @@ const Header = ({ activeTab, setActiveTab, searchQuery, setSearchQuery }) => {
                                 <div className="apps-header">My Skills</div>
                                 <div className="apps-scroll-content">
                                     <div className="apps-grid">
-                                        {allSkills.map((skill, index) => (
+                                        {allSkills?.map((skill, index) => (
                                             <div key={index} className="app-item" title={skill}>
                                                 <div className="app-icon">
                                                     {skillIcons[skill] || <FaCode />}
