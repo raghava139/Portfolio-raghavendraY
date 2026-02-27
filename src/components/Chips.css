@@ -1,0 +1,309 @@
+/* ===========================
+   Google Material Design Chips
+   =========================== */
+
+/* Chip Container */
+.google-chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+/* ===========================
+   Base Chip
+   =========================== */
+.google-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Google Sans', 'Roboto', -apple-system, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    text-decoration: none;
+    user-select: none;
+}
+
+/* ===========================
+   Size Variants
+   =========================== */
+.google-chip--small {
+    height: 26px;
+    padding: 0 10px;
+    font-size: 12px;
+    border-radius: 13px;
+}
+
+.google-chip--small .google-chip__icon {
+    font-size: 14px;
+}
+
+.google-chip--medium {
+    height: 32px;
+    padding: 0 14px;
+    font-size: 14px;
+    border-radius: 16px;
+}
+
+.google-chip--medium .google-chip__icon {
+    font-size: 16px;
+}
+
+.google-chip--large {
+    height: 38px;
+    padding: 0 18px;
+    font-size: 15px;
+    border-radius: 19px;
+}
+
+.google-chip--large .google-chip__icon {
+    font-size: 18px;
+}
+
+/* ===========================
+   Outlined Variant (Default)
+   =========================== */
+.google-chip--outlined {
+    background-color: transparent;
+    border: 1px solid var(--google-border);
+    color: var(--google-text);
+}
+
+.google-chip--outlined .google-chip__icon {
+    color: var(--chip-color, var(--google-text-light));
+}
+
+.google-chip--outlined:hover {
+    background-color: var(--google-hover);
+    border-color: var(--google-text-light);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.google-chip--outlined:active {
+    transform: scale(0.96);
+}
+
+/* Outlined Selected */
+.google-chip--outlined.google-chip--selected {
+    background-color: var(--chip-bg-light, #e8f0fe);
+    border-color: var(--chip-color, var(--google-blue));
+    color: var(--chip-color, var(--google-blue));
+}
+
+[data-theme='dark'] .google-chip--outlined.google-chip--selected {
+    background-color: var(--chip-bg-dark, #303134);
+}
+
+/* ===========================
+   Filled Variant
+   =========================== */
+.google-chip--filled {
+    background-color: var(--chip-bg-light, #e8f0fe);
+    border: 1px solid transparent;
+    color: var(--chip-color, #1967d2);
+}
+
+.google-chip--filled .google-chip__icon {
+    color: var(--chip-color, #1967d2);
+}
+
+.google-chip--filled:hover {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    filter: brightness(0.97);
+}
+
+.google-chip--filled:active {
+    transform: scale(0.96);
+}
+
+[data-theme='dark'] .google-chip--filled {
+    background-color: var(--chip-bg-dark, #303134);
+    color: var(--chip-color, #8ab4f8);
+}
+
+/* Filled Selected */
+.google-chip--filled.google-chip--selected {
+    border-color: var(--chip-color, var(--google-blue));
+    box-shadow: 0 0 0 1px var(--chip-color, var(--google-blue));
+}
+
+/* ===========================
+   Tonal Variant
+   =========================== */
+.google-chip--tonal {
+    background-color: var(--google-hover);
+    border: 1px solid transparent;
+    color: var(--google-text);
+}
+
+.google-chip--tonal .google-chip__icon {
+    color: var(--chip-color, var(--google-text-light));
+}
+
+.google-chip--tonal:hover {
+    background-color: var(--google-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.google-chip--tonal:active {
+    transform: scale(0.96);
+}
+
+.google-chip--tonal.google-chip--selected {
+    background-color: var(--chip-bg-light, #e8f0fe);
+    color: var(--chip-color, var(--google-blue));
+}
+
+[data-theme='dark'] .google-chip--tonal.google-chip--selected {
+    background-color: var(--chip-bg-dark, #303134);
+}
+
+/* ===========================
+   Chip Icon
+   =========================== */
+.google-chip__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+}
+
+/* ===========================
+   Chip Label
+   =========================== */
+.google-chip__label {
+    line-height: 1;
+}
+
+/* ===========================
+   Ripple Effect
+   =========================== */
+.google-chip__ripple {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.google-chip__ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    padding-bottom: 100%;
+    background: radial-gradient(circle, var(--chip-color, rgba(0, 0, 0, 0.12)) 10%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.google-chip:active .google-chip__ripple::after {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(2.5);
+    transition: opacity 0.1s, transform 0.4s cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* ===========================
+   Chip Group (Categorized)
+   =========================== */
+.google-chip-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.google-chip-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.google-chip-group__label {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--google-text-light);
+    padding-left: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.google-chip-group__label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--google-border);
+}
+
+.google-chip-group__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* ===========================
+   Focus Visible (Keyboard Nav)
+   =========================== */
+.google-chip:focus-visible {
+    outline: 2px solid var(--google-blue);
+    outline-offset: 2px;
+}
+
+/* ===========================
+   Hover Animation (Subtle Scale)
+   =========================== */
+.google-chip:hover .google-chip__icon {
+    animation: chipIconPulse 0.4s ease;
+}
+
+@keyframes chipIconPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 768px) {
+    .google-chip--medium {
+        height: 30px;
+        padding: 0 12px;
+        font-size: 13px;
+    }
+
+    .google-chip-group__label {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .google-chip-container,
+    .google-chip-group__chips {
+        gap: 6px;
+    }
+
+    .google-chip--medium {
+        height: 28px;
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+    .google-chip--medium .google-chip__icon {
+        font-size: 14px;
+    }
+}

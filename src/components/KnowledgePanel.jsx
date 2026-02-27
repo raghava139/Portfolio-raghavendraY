@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope, FaShareAlt, FaGlobe, FaTimes, FaWhatsapp, FaTwitter, FaInstagram, FaCopy, FaCheck } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope, FaShareAlt, FaGlobe, FaTimes, FaWhatsapp, FaTwitter, FaInstagram, FaCopy, FaCheck, FaFilePdf } from 'react-icons/fa';
 import { profileData } from '../data/profile';
+import ChipGroup from './Chips';
 import './KnowledgePanel.css';
+import { BiDownArrow } from 'react-icons/bi';
+import { GrResume } from 'react-icons/gr';
 
 const KnowledgePanel = () => {
     const { name, role, experience, summary, social, skills, photo } = profileData;
@@ -83,6 +86,8 @@ const KnowledgePanel = () => {
                 <div className="panel-actions">
                     <a href={social.linkedin} target="_blank" rel="noreferrer" className="action-btn"><FaGlobe /> Website</a>
                     <button className="action-btn" onClick={() => setShowShareModal(true)}><FaShareAlt /> Share</button>
+                    <a href={social.linkedin} target="_blank" rel="noreferrer" className="action-btn"><FaFilePdf /> Resume</a>
+
 
                     {/* Share Modal */}
                     {showShareModal && (
@@ -156,11 +161,13 @@ const KnowledgePanel = () => {
 
                 <div className="panel-section">
                     <h3>Skills</h3>
-                    <div className="panel-chips">
-                        {skills.frontend.slice(0, 5).map(skill => (
-                            <span key={skill} className="kp-chip">{skill}</span>
-                        ))}
-                    </div>
+                    <ChipGroup
+                        skills={skills.frontend}
+                        variant="outlined"
+                        size="small"
+                        showIcon={true}
+                        grouped={false}
+                    />
                 </div>
             </div>
         </aside>
