@@ -65,7 +65,7 @@ function App() {
         )}
       </main>
 
-      <footer style={{
+      {/* <footer style={{
         background: '#f2f2f2',
         borderTop: '1px solid #dfe1e5',
         marginTop: 'auto',
@@ -76,7 +76,7 @@ function App() {
         justifyContent: 'center'
       }}>
         <p>India • Based on your past activity - Learn more</p>
-      </footer>
+      </footer> */}
     </div>
   );
 }
